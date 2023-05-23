@@ -34,38 +34,39 @@ public class Library {
         return result;
     }
     //TODO: fix this function not completed yet
-/*
-    public void checkOutBook(Book book1) {
-        int result = -1; // 1 if book available ,2 if
+
+    public int checkOutBook(Book book1) {
+        // 1 book can be checkout ,0 book can't be checkout ,-1 book is not in the library
+        int result = -1;
         for (Book book : books) {
             if (book.equals(book1)) {
-                if (book1.availabilityStatus) {
-                    book1.changeAvailabilityStatus();
+                if (book.availabilityStatus) {
+                    book.changeAvailabilityStatus();
                     result = 1;
-                    System.out.println("the book of " + book1.title + " have been returned thanks");
+                    break;
                 } else {
-                    System.out.println("the book of " + book1.title + " is already in Library and this copy isn't ours ");
+                    result = 0;
+                    break;
                 }
-            } else {
-                System.out.println("the book of " + book1.title + " does not belong to this Library");
             }
         }
+        return result;
     }
 
-    public void returnBook(Book book1) {
+    public int returnBook(Book book1) {
+        // 1 book can be return ,0 book isn't ours copy   ,-1 if book is not in the library
+        int result = -1;
         for (Book book : books) {
             if (book.equals(book1)) {
-                if (!book1.availabilityStatus) {
-                    book1.changeAvailabilityStatus();
-                    System.out.println("the book of " + book1.title + " have been returned thanks");
+                if (!book.availabilityStatus) {
+                    book.changeAvailabilityStatus();
+                    result = 1;
+                    break;
                 } else {
-                    System.out.println("the book of " + book1.title + " is already in Library and this copy isn't ours ");
+                    result = 0;
                 }
-            } else {
-                System.out.println("the book of " + book1.title + " does not belong to this Library");
             }
         }
+        return result;
     }
-
- */
 }
